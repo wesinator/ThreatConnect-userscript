@@ -2,7 +2,7 @@
 // @name     ThreatConnect Utilities userscript
 // @version  1
 // @grant    none
-// @match    https://*.threatconnect.com/auth/*
+// @match    https://*.threatconnect.com/*
 // ==/UserScript==
 
 if (window.location.pathname == "/auth/settings/user.xhtml") {
@@ -46,3 +46,5 @@ function fileDataDownload(contents, name, mimeType) {
   a.download = name;
   a.click();
 }
+
+// document.getElementById("j_idt112:modificationHostName").value = document.getElementById("j_idt112:modificationHostName").value.trim();
