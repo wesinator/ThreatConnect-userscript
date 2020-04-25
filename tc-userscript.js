@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name     ThreatConnect Utilities userscript
+// @author   wesinator
 // @version  1
 // @grant    none
 // @match    https://*.threatconnect.com/*
+// @run-at    document-idle
 // ==/UserScript==
 
 if (window.location.pathname == "/auth/settings/user.xhtml") {
