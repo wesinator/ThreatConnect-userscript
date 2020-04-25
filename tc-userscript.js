@@ -7,19 +7,23 @@
 
 if (window.location.pathname == "/auth/settings/user.xhtml") {
   setTimeout(function() {
-  var getFollows = confirm("Do you want to download your TC follow settings to backup file ?");
-  if (getFollows) {
     // Follow Settings link #form:tabView:j_idt213 no id :( 
     
     var groupFollows = document.getElementById("form:tabView:notificationIncidentTable_data");
-    var groups = getTableText(groupFollows);
-
-    var indicatorFollows = document.getElementById("form:tabView:notificationIndicatorTable_data");
-    var indicators = getTableText(indicatorFollows);
+    if (groupFollows) {
+      var getFollows = confirm("Do you want to download the follow settings to backup file ?");
+      
+      if (getFollows) {
+        var groups = getTableText(groupFollows);
+        
+        var indicatorFollows = document.getElementById("form:tabView:notificationIndicatorTable_data");
+        var indicators = getTableText(indicatorFollows);
+        
+        var follows = groups.concat(indicators);
+        return arrayToFile(follows, "TC_follows_backup.txt");
+      }
+    }
     
-    var follows = groups.concat(indicators);
-    return arrayToFile(follows, "TC_follows_backup.txt");
-  }
   }, 5000);
 }
 
